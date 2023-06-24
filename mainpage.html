@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>craftcatcher.com</title>
+    <style>
+        body {
+            background-image: url('{% static "leafy.jpg" %}');
+            background-size: cover;
+        }
+
+        .navbar {
+            background-color: rgb(2, 58, 26);
+            border-radius: 30px;
+        }
+
+        .navbar ul {
+            overflow: auto;
+            margin-left: 40px;
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+        .navbar li {
+            float: left;
+            list-style: none;
+            margin: 13px 20ox;
+            padding-top: 20px;
+        }
+
+        .navbar li a {
+            padding-top: 20px;
+            text-decoration: none;
+            color: white;
+            margin: 13px;
+
+        }
+
+        .navbar li a:hover {
+            color: red;
+        }
+
+        .search {
+            float: right;
+            color: white;
+            padding: 12px 75px;
+        }
+
+        .navbar input {
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 4px 17px;
+            width: 129px;
+        }
+
+        .logo {
+            margin-left: -20px;
+            margin-top: -10px;
+            width: 50px;
+        }
+
+        .tag {
+            margin-left: 300px;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .head {
+            width: 600px;
+            margin-top: -75px;
+
+        }
+
+        .below {
+            margin-left: 590px;
+            margin-top: -12px;
+            font-size: 25px;
+            color: blue;
+            font-family: cursive;
+            position: absolute;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .dc {
+            margin-top: 0px;
+            width: 500px;
+            height: 500px;
+            margin-right: 700px;
+        }
+
+        .de {
+            margin-top: 30px;
+            margin-left: 656px;
+            margin-bottom: 1000px;
+        }
+
+        .res {
+            margin-top: 30px;
+            margin-left: 650px;
+            bottom: 1700px;
+        }
+
+        .wlo {
+
+            width: 190px;
+            border-radius: 50%;
+            margin-left: 1400px;
+            margin-top: -140px;
+        }
+
+        .up {
+            margin-top: -400px;
+        }
+
+        .cont {
+            margin-left: 600px;
+            margin-top: -900px;
+            font-size: 30px;
+            font-family: cursive;
+            color: brown;
+            
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><img src='{% static "lcor.jpg" %}' class="logo"></li>
+                <li><a href="mainpage">HOME</a></li>
+                <li><a href="dreamcatchers">DREAMCATCHERS</a></li>
+                <li><a href="resinproducts">RESIN PRODUCTS</a></li>
+                <li><a href="gallery">GALLERY</a></li>
+                <li><a href="mainpage">CONTACT US</a> </li>
+                <div class="search">
+                    <input type="text" name="search" id="search" placeholder="search this website">
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <img src='{% static "BeFunky-collage.jpg" %}' class="dc">
+
+    <div class="up">
+        <div class="tag">
+            <img src='{% static "head.jpg" %}' class="head">
+            <div class="below">customising dreams</div>
+        </div>
+
+        <img src='{% static "wlo.jpg" %}' class="wlo">
+        <img src='{% static "res.jpg" %}' class="res">
+        <img src='{% static "DC3.jpg" %}' class="de">      
+        <p class="cont"><strong>**GIVE A BOHO TOUCH TO YOUR WALLS**<br>
+       
+        </strong></p>
+
+    </div>
+
+
+</body>
+
+
+</html>

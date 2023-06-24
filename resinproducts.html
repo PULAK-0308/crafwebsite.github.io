@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {%load static%}
+    <title>RESIN PRODUCTS</title>
+    <style>
+        body 
+        {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url('{%static "peach.jpg"%}');
+            background-size: cover;
+
+        }
+
+        .he{
+            margin-top: -10px;
+            width: 100%;
+            height: 250px;
+
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+
+        .carousel-item  {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .carousel-item  img {
+            width: 100%;
+            height: 300px;
+            border-radius: 5px;
+            border: 1px solic black;
+        }
+
+        .carousel-item  h3,
+        h4 {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .cost {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .navbar {
+            background-color: rgb(255, 79, 188);
+            border-radius: 0px;
+            opacity: 0.8;
+            margin-top: -20px;
+        }
+
+        .navbar ul {
+            overflow: auto;
+            margin-left: 40px;
+            font-size: 20px;
+            font-family: cursive;
+        }
+
+        .navbar li {
+            float: left;
+            list-style: none;
+            margin: 13px 20ox;
+            padding-top: 20px;
+        }
+
+        .navbar li a {
+            padding-top: 20px;
+            text-decoration: none;
+            color: white;
+            margin: 13px;
+
+        }
+
+        .navbar li a:hover {
+            color: red;
+        }
+
+        .search {
+            float: right;
+            color: white;
+            padding: 12px 75px;
+        }
+
+        .navbar input {
+            border: 2px solid black;
+            border-radius: 14px;
+            padding: 4px 17px;
+            width: 129px;
+        }
+
+        .logo {
+            margin-left: -20px;
+            margin-top: -10px;
+            width: 50px;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #f95d03;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 25%;
+            opacity: 0.8;
+            margin-top: 100px;
+            margin-left: 400px;
+        }
+
+
+        /* The Close Button */
+        .close {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        #mydiv {
+            height: 115px;
+            max-width: 300px;
+            margin-top: 14px;
+            margin-left: 330px;
+            padding: 20px;
+            border-radius: 5%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .b1 {
+            width: 200px;
+            margin-left: -300px;
+            padding: 12px;
+            margin-top: 7px;
+            border-radius: 15px;
+            color: #111110;
+            text-align: center;
+            font-weight: bolder;
+            background-color: rgb(16, 245, 8);
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><img src='{%static "lcor.jpg"%}' class="logo"></li>
+                <li><a href="mainpage">HOME</a></li>
+                <li><a href="dreamcatchers">DREAMCATCHERS</a></li>
+                <li><a href="resinproducts">RESIN PRODUCTS</a></li>
+                <li><a href="gallery">GALLERY</a></li>
+                <li><a href="mainpage">CONTACT US</a> </li>
+                <div class="search">
+                    <input type="text" name="search" id="search" placeholder="search this website">
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="he">
+        <h1><img src='{%static "head1.jpg"%}' class="he"> </h1>
+    </div>
+    <div class="container carousel-inner no-padding">
+
+        <div class="carousel-item active">
+
+
+            {% for i in products %}
+
+            <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="card align-items-center" style="width: 18rem;">
+                    <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title" id="namepr{{i.id}}"> {{i.product_name}}</h5>
+
+                        
+                        <h6 class="card-title">Price : <span id="pricepr{{i.id}}">{{i.price}}</span></h6>
+                        <span id="divpr{{i.id}}" class="divpr">
+                            <button id="pr{{i.id}}" class="btn btn-primary cart">Add to Cart</button>
+                        </span>
+                        <a href="/craft/products/{{i.id}}"><button id="qv{{i.id}}"
+                                class="btn btn-primary cart">QuickView</button></a>
+
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:4 and forloop.counter > 0 and not forloop.last %}
+
+        </div>
+        <div class="carousel-item">
+            {% endif %}
+
+            {% endfor %}
+        </div>
+
+
+
+
+
+
+    </div>
+
+
+    
+         
+
+  
+</body>
+
+</html>
